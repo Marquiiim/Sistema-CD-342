@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+}
+nav ul {
+  display: flex;
+  gap: 5rem;
+}
+nav ul li {
+  text-transform: uppercase;
+}
+nav ul li a {
+  border-bottom: 2.5px solid transparent;
+  padding: 0.5rem;
+  transition: 0.5s;
+}
+nav ul li a:hover {
+  border-bottom: 2.5px solid #007DC6;
+}/*# sourceMappingURL=Navbar.module.css.map */
