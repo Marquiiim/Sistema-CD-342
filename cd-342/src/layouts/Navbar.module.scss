@@ -4,6 +4,8 @@ nav {
     align-items: center;
     padding: 2rem;
     width: 100%;
+    position: fixed;
+    z-index: 999;
 
     ul {
         display: flex;

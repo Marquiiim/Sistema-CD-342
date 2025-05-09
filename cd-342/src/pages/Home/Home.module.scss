@@ -1,0 +1,36 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    width: 100%;
+    padding: 1rem;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+
+    img {
+        height: 50vh;
+        width: auto;
+        max-width: 90vw;
+        object-fit: contain;
+    }
+
+    p {
+        font-size: 1.5rem;
+        max-width: 90vw;
+        text-align: center;
+        padding: 0 1rem;
+
+        .cd {
+            color: #0054A6;
+            font-weight: bold;
+        }
+
+        .number_cd {
+            color: #ED1C24;
+            font-weight: bold;
+        }
+    }
+}

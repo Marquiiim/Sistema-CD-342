@@ -1,0 +1,51 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+section ul {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+section ul li .session {
+  border: 2px solid #3a86ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 5rem;
+}
+section ul li .session::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3a86ff, #4cc9f0);
+}
+section ul li .session .category {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f8f9fa;
+  background-color: #3a86ff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  position: relative;
+  left: -10px;
+}/*# sourceMappingURL=General.module.css.map */

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import styles from './Navbar.module.css'
+import './Navbar.module.css'
 
 function Navbar() {
 
@@ -11,7 +11,7 @@ function Navbar() {
                     <Link to='/'>Início</Link>
                 </li>
                 <li>
-                    <Link to=''>Geral</Link>
+                    <Link to='/geral'>Geral</Link>
                 </li>
                 <li>
                     <Link to=''>Catalogar</Link>
