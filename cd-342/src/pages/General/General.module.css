@@ -10,8 +10,6 @@ section ul {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  margin: 0;
   list-style: none;
 }
 section ul li .session {

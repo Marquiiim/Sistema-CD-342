@@ -1,39 +1,42 @@
 .object {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0.5rem 0;
+  gap: 1.5rem;
 }
-.object li {
+.object .object_structure {
   display: flex;
-  align-items: center;
-  min-width: 0;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #dae0e5;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  border: 1px solid #ebebec;
 }
-.object li:last-child {
-  border-bottom: none;
+.object div {
+  display: flex;
+  flex-direction: column;
 }
-.object li label {
-  font-weight: 600;
-  color: #0a0c0d;
-  min-width: 100px;
-  margin-right: 1rem;
+.object div label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #212529;
+  margin-bottom: 0.25rem;
   position: relative;
 }
-.object li label::after {
+.object div label::after {
   content: ":";
-  position: absolute;
-  right: 5px;
 }
-.object li span {
+.object div span {
   color: #212529;
-  background-color: #e9ecef;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  flex-grow: 1;
-  word-break: break-word;
+  background-color: #d1d1d3;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
   font-family: "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.4;
+  word-break: break-word;
+  border: 1px solid #b7b7ba;
 }/*# sourceMappingURL=Sessions.module.css.map */
