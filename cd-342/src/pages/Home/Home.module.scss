@@ -6,15 +6,11 @@ section {
     gap: 3rem;
     width: 100%;
     padding: 1rem;
-    overflow-x: hidden;
-    position: relative;
-    z-index: 0;
 
     img {
+        margin-top: 10rem;
         height: 50vh;
         width: auto;
-        max-width: 90vw;
-        object-fit: contain;
     }
 
     p {
