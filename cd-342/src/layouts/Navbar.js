@@ -14,7 +14,7 @@ function Navbar() {
                     <Link to='/geral'>Geral</Link>
                 </li>
                 <li>
-                    <Link to=''>Catalogar</Link>
+                    <Link to='/catalogar'>Catalogar</Link>
                 </li>
             </ul>
         </nav>
