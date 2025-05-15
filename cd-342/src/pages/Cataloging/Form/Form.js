@@ -35,7 +35,6 @@ function Form() {
         link.click();
         document.body.removeChild(link);
 
-        // Limpa o formulário
         setFormData({
             nome: '',
             ip: '',
