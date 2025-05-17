@@ -11,6 +11,9 @@ function Form() {
     const [patrimonio, setPatrimonio] = useState('')
     const [setor, setSetor] = useState('')
 
+    const [duplicateError, setDuplicateError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
         axios.get('http://127.0.0.1:5000/api/dados')
             .then((res) => setDados(res.data))
@@ -18,6 +21,8 @@ function Form() {
     }, [])
 
     const sendData = () => {
+        setIsLoading(true)
+        setDuplicateError(false)
         axios.post('http://127.0.0.1:5000/api/dados', { nome, ip, mac, patrimonio, setor })
             .then((res) => {
                 alert(res.data.message)
@@ -28,7 +33,17 @@ function Form() {
                 setPatrimonio('')
                 setSetor('')
             })
-            .catch((err) => console.error(err))
+            .catch(
+                (err) => {
+                    console.error(err.response?.data || err)
+                    if (err.response?.data?.error === 'ER_DUP_ENTRY') {
+                        setDuplicateError(true)
+                    }
+                })
+            .finally(() => {
+                setIsLoading(false)
+                setDuplicateError(false)
+            })
     }
 
     return (
@@ -45,6 +60,10 @@ function Form() {
                     <legend className={styles.info_form}>
                         Informações do Equipamento
                     </legend>
+
+                    {duplicateError && (<span className={styles.error_message}>
+                        Equipamento já existente na base de dados!
+                    </span>)}
 
                     <div className={styles.form_group}>
                         <label>Nome</label>
@@ -110,7 +129,9 @@ function Form() {
                         </select>
                     </div>
 
-                    <button type='submit'>Adicionar</button>
+                    <button type='submit'>
+                        {isLoading ? 'Enviando...' : 'Adicionar'}
+                    </button>
                 </fieldset>
             </form>
         </div>

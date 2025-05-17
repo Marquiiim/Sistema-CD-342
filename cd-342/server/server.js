@@ -46,8 +46,15 @@ app.get('/api/dados', (req, res) => {
 app.post('/api/dados', (req, res) => {
     const { nome, ip, mac, patrimonio, setor } = req.body
     pool.query('INSERT INTO equipamentos (nome, ip, mac, patrimonio, setor) VALUES (?, ?, ?, ?, ?)', [nome, ip, mac, patrimonio, setor], (err, result) => {
-        if (err) throw err
-        res.json({ message: 'Dados inseridos com sucesso' })
+        if (err) {
+
+            if (err.code === 'ER_DUP_ENTRY') {
+                return res.status(409).json({ error: 'Equipamento já cadastrado!' })
+            }
+            console.error('Error no MySQL:', err)
+            return res.status(500).json({ error: 'Erro interno no servidor.' })
+        }
+        res.json({ message: 'Dados inseridos com sucesso!' })
     })
 })
 
