@@ -25,7 +25,7 @@ pool.getConnection((err, connection) => {
 
 pool.on('error', (err) => {
     console.error('Error no Pool MySQL:', err)
-    if (err.code == 'PROTOCOL_CONECTION_LOST') {
+    if (err.code == 'PROTOCOL_CONNECTION_LOST') {
         console.log('Reconectando...')
     } else {
         throw err
@@ -47,7 +47,6 @@ app.post('/api/dados', (req, res) => {
     const { nome, ip, mac, patrimonio, setor } = req.body
     pool.query('INSERT INTO equipamentos (nome, ip, mac, patrimonio, setor) VALUES (?, ?, ?, ?, ?)', [nome, ip, mac, patrimonio, setor], (err, result) => {
         if (err) {
-
             if (err.code === 'ER_DUP_ENTRY') {
                 return res.status(409).json({ error: 'Equipamento já cadastrado!' })
             }

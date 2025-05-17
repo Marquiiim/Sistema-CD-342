@@ -23,6 +23,7 @@ function Form() {
     const sendData = () => {
         setIsLoading(true)
         setDuplicateError(false)
+
         axios.post('http://127.0.0.1:5000/api/dados', { nome, ip, mac, patrimonio, setor })
             .then((res) => {
                 alert(res.data.message)
@@ -36,7 +37,7 @@ function Form() {
             .catch(
                 (err) => {
                     console.error(err.response?.data || err)
-                    if (err.response?.data?.error === 'ER_DUP_ENTRY') {
+                    if (err.response?.data?.error === 'Equipamento já cadastrado!') {
                         setDuplicateError(true)
                     }
                 })
