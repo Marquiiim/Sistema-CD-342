@@ -42,7 +42,6 @@ function Form() {
                 })
             .finally(() => {
                 setIsLoading(false)
-                setDuplicateError(false)
             })
     }
 
