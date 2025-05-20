@@ -1,5 +1,7 @@
 import styles from './Sessions.module.css'
 
+import { FaTrashAlt } from "react-icons/fa";
+
 function Sessions({ nome, ip, mac, patrimônio, setor }) {
 
     return (
@@ -25,6 +27,8 @@ function Sessions({ nome, ip, mac, patrimônio, setor }) {
                     <label>Setor</label>
                     <span>{setor}</span>
                 </div>
+
+                <FaTrashAlt className={styles.trash} />
             </li>
         </ul>
     )

@@ -4,6 +4,7 @@
         "Argox",
         "biel",
         "Cataloging",
+        "Comp",
         "computers",
         "CONECTION",
         "Cpath",
@@ -11,6 +12,8 @@
         "equipments",
         "Finac",
         "gradient",
+        "impressoraslaser",
+        "impressorastermicas",
         "Lexend",
         "lighten",
         "outer",
@@ -20,6 +23,10 @@
         "printers",
         "secondary",
         "structure",
-        "thermals"
+        "Termica",
+        "termicas",
+        "thermals",
+        "tipoequipamento",
+        "trash"
     ]
 }

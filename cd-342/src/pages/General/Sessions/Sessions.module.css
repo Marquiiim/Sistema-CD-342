@@ -15,21 +15,21 @@
   background-color: #f8f9fa;
   border: 1px solid #ebebec;
 }
-.object div {
+.object .object_structure div {
   display: flex;
   flex-direction: column;
 }
-.object div label {
+.object .object_structure div label {
   font-weight: 700;
   font-size: 1rem;
   color: #212529;
   margin-bottom: 0.25rem;
   position: relative;
 }
-.object div label::after {
+.object .object_structure div label::after {
   content: ":";
 }
-.object div span {
+.object .object_structure div span {
   color: #212529;
   background-color: #d1d1d3;
   padding: 0.75rem 1rem;
@@ -39,4 +39,13 @@
   line-height: 1.4;
   word-break: break-word;
   border: 1px solid #b7b7ba;
+}
+.object .object_structure .trash {
+  width: 1.5rem;
+  height: auto;
+  transition: 0.3s;
+}
+.object .object_structure .trash:hover {
+  color: #ff0000;
+  cursor: pointer;
 }/*# sourceMappingURL=Sessions.module.css.map */

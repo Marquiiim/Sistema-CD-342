@@ -44,8 +44,8 @@ app.get('/api/dados', (req, res) => {
 })
 
 app.post('/api/dados', (req, res) => {
-    const { nome, ip, mac, patrimonio, setor } = req.body
-    pool.query('INSERT INTO equipamentos (nome, ip, mac, patrimonio, setor) VALUES (?, ?, ?, ?, ?)', [nome, ip, mac, patrimonio, setor], (err, result) => {
+    const { nome, ip, mac, patrimonio, setor, tipo_equipamento } = req.body
+    pool.query('INSERT INTO equipamentos (nome, ip, mac, patrimonio, setor, tipo_equipamento) VALUES (?, ?, ?, ?, ?, ?)', [nome, ip, mac, patrimonio, setor, tipo_equipamento], (err, result) => {
         if (err) {
             if (err.code === 'ER_DUP_ENTRY') {
                 return res.status(409).json({ error: 'Equipamento já cadastrado!' })

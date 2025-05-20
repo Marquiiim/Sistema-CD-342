@@ -7,13 +7,23 @@ import styles from './General.module.css'
 
 function General() {
 
-    const [dados, setDados] = useState([])
     const [error, setError] = useState(null)
+
+    const [impressoraslaser, setImpressorasLaser] = useState([])
+    const [impressorastermicas, setImpressorasTermicas] = useState([])
+    const [computadores, setComputadores] = useState([])
 
     const fetchData = async () => {
         try {
             const response = await axios.get('http://127.0.0.1:5000/api/dados')
-            setDados(response.data)
+
+            const laser = response.data.filter(item => String(item.tipo_equipamento) === '1');
+            const termicas = response.data.filter(item => String(item.tipo_equipamento) === '2');
+            const computadoresData = response.data.filter(item => String(item.tipo_equipamento) === '3');
+
+            setImpressorasLaser(laser);
+            setImpressorasTermicas(termicas);
+            setComputadores(computadoresData);
         } catch (err) {
             setError(err.message)
         }
@@ -23,16 +33,6 @@ function General() {
         fetchData()
     }, [])
 
-    const dadosAgrupados = dados.reduce((acc, item) => {
-        const categoria = item.categoria || 'Sem categoria'
-
-        if (!acc[categoria]) {
-            acc[categoria] = []
-        }
-        acc[categoria].push(item)
-        return acc
-    }, {})
-
     return (
         <section>
             <ul>
@@ -41,7 +41,12 @@ function General() {
                         <legend className={styles.category}>
                             Impressoras Laser
                         </legend>
-                        <Sessions nome='HP' ip='192.0.2.123' mac='DE:AD:BE:EF:00:01' patrimônio='001230' setor='RH' />
+                        {impressoraslaser.length > 0 && impressoraslaser.map((item) => (<Sessions
+                            nome={item.nome}
+                            ip={item.ip}
+                            mac={item.mac}
+                            patrimônio={item.patrimonio}
+                            setor={item.setor} />))}
                     </fieldset>
                 </li>
                 <li>
@@ -49,7 +54,12 @@ function General() {
                         <legend className={styles.category}>
                             Impressoras Térmicas
                         </legend>
-                        <Sessions nome='Argox' ip='192.0.2.123' mac='DE:AD:BE:EF:00:01' patrimônio='002230' setor='CIDADE' />
+                        {impressorastermicas.length > 0 && impressorastermicas.map((item) => (<Sessions
+                            nome={item.nome}
+                            ip={item.ip}
+                            mac={item.mac}
+                            patrimônio={item.patrimonio}
+                            setor={item.setor} />))}
                     </fieldset>
                 </li>
                 <li>
@@ -57,7 +67,12 @@ function General() {
                         <legend className={styles.category}>
                             Computadores
                         </legend>
-                        <Sessions nome='INTEL' ip='192.0.2.123' mac='DE:AD:BE:EF:00:01' patrimônio='003230' setor='TI' />
+                        {computadores.length > 0 && computadores.map((item) => (<Sessions
+                            nome={item.nome}
+                            ip={item.ip}
+                            mac={item.mac}
+                            patrimônio={item.patrimonio}
+                            setor={item.setor} />))}
                     </fieldset>
                 </li>
             </ul>

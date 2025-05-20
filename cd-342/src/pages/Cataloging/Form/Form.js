@@ -10,6 +10,7 @@ function Form() {
     const [mac, setMac] = useState('')
     const [patrimonio, setPatrimonio] = useState('')
     const [setor, setSetor] = useState('')
+    const [tipo_equipamento, setTipo_Equipamento] = useState('')
 
     const [duplicateError, setDuplicateError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
@@ -24,15 +25,27 @@ function Form() {
         setIsLoading(true)
         setDuplicateError(false)
 
-        axios.post('http://127.0.0.1:5000/api/dados', { nome, ip, mac, patrimonio, setor })
+        console.log("Dados enviados:", {
+            nome,
+            ip,
+            mac,
+            patrimonio,
+            setor,
+            tipo_equipamento
+        })
+
+        console.log("Valor antes do envio:", tipo_equipamento, typeof tipo_equipamento);
+
+        axios.post('http://127.0.0.1:5000/api/dados', { nome, ip, mac, patrimonio, setor, tipo_equipamento })
             .then((res) => {
                 alert(res.data.message)
-                setDados([...dados, { nome, ip, mac, patrimonio, setor }])
+                setDados([...dados, { nome, ip, mac, patrimonio, setor, tipo_equipamento }])
                 setNome('')
                 setIp('')
                 setMac('')
                 setPatrimonio('')
                 setSetor('')
+                setTipo_Equipamento('')
             })
             .catch(
                 (err) => {
@@ -123,9 +136,23 @@ function Form() {
                             <option value=''>Selecione uma opção</option>
                             <option value='TI'>TI</option>
                             <option value='RH'>RH</option>
-                            <option value='Fat_ext'>Faturamento Externo</option>
-                            <option value='Fat_int'>Faturamento Interno</option>
-                            <option value='Finac'>Financeiro</option>
+                            <option value='Faturamento Externo'>Faturamento Externo</option>
+                            <option value='Faturamento Interno'>Faturamento Interno</option>
+                            <option value='Financeiro'>Financeiro</option>
+                        </select>
+                    </div>
+
+                    <div className={styles.form_group}>
+                        <label>Tipo de Equipamento</label>
+                        <select
+                            value={tipo_equipamento}
+                            onChange={(e) => setTipo_Equipamento(e.target.value)}
+                            required
+                        >
+                            <option value=''>Selecione uma opção</option>
+                            <option value='1'>Impressora Laser</option>
+                            <option value='2'>Impressora Térmica</option>
+                            <option value='3'>Computador</option>
                         </select>
                     </div>
 
