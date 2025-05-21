@@ -55,15 +55,21 @@ $box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 
         }
 
+        .trashButton {
+            border-radius: $border-radius;
+            border: none;
+            padding: .6rem;
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: $box-shadow;
+                color: red;
+                cursor: pointer;
+            }
+
         .trash {
             width: 1.5rem;
             height: auto;
-            transition: 0.3s;
-            
-            &:hover {
-                color: $trash-color;
-                cursor: pointer;
-            }
-        }
+        }}
     }
 }

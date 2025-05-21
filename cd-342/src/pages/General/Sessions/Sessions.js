@@ -2,7 +2,12 @@ import styles from './Sessions.module.css'
 
 import { FaTrashAlt } from "react-icons/fa";
 
-function Sessions({ nome, ip, mac, patrimônio, setor }) {
+function Sessions({ nome, ip, mac, patrimonio, setor, onRemove }) {
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        onRemove(patrimonio)
+    }
 
     return (
         <ul className={styles.object}>
@@ -21,14 +26,18 @@ function Sessions({ nome, ip, mac, patrimônio, setor }) {
                 </div>
                 <div>
                     <label>Patrimônio</label>
-                    <span>{patrimônio}</span>
+                    <span>{patrimonio}</span>
                 </div>
                 <div>
                     <label>Setor</label>
                     <span>{setor}</span>
                 </div>
-
-                <FaTrashAlt className={styles.trash} />
+                <button
+                    onClick={handleClick}
+                    className={styles.trashButton}
+                >
+                    <FaTrashAlt className={styles.trash} />
+                </button>
             </li>
         </ul>
     )

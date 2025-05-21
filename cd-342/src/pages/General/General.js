@@ -29,6 +29,19 @@ function General() {
         }
     }
 
+    const handleRemove = async (patrimonio) => {
+        try {
+            await axios.delete(`http://127.0.0.1:5000/api/dados/${patrimonio}`)
+
+            setImpressorasLaser(prev => prev.filter(item => item.patrimonio !== patrimonio));
+            setImpressorasTermicas(prev => prev.filter(item => item.patrimonio !== patrimonio));
+            setComputadores(prev => prev.filter(item => item.patrimonio !== patrimonio));
+
+        } catch (err) {
+            console.error('Erro ao deletar:', err)
+        }
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -45,8 +58,9 @@ function General() {
                             nome={item.nome}
                             ip={item.ip}
                             mac={item.mac}
-                            patrimônio={item.patrimonio}
-                            setor={item.setor} />))}
+                            patrimonio={item.patrimonio}
+                            setor={item.setor}
+                            onRemove={handleRemove} />))}
                     </fieldset>
                 </li>
                 <li>
@@ -58,8 +72,9 @@ function General() {
                             nome={item.nome}
                             ip={item.ip}
                             mac={item.mac}
-                            patrimônio={item.patrimonio}
-                            setor={item.setor} />))}
+                            patrimonio={item.patrimonio}
+                            setor={item.setor}
+                            onRemove={handleRemove} />))}
                     </fieldset>
                 </li>
                 <li>
@@ -71,8 +86,9 @@ function General() {
                             nome={item.nome}
                             ip={item.ip}
                             mac={item.mac}
-                            patrimônio={item.patrimonio}
-                            setor={item.setor} />))}
+                            patrimonio={item.patrimonio}
+                            setor={item.setor}
+                            onRemove={handleRemove} />))}
                     </fieldset>
                 </li>
             </ul>

@@ -57,6 +57,21 @@ app.post('/api/dados', (req, res) => {
     })
 })
 
+app.delete('/api/dados/:patrimonio', (req, res) => {
+    const { patrimonio } = req.params
+
+    pool.query('DELETE FROM equipamentos WHERE patrimonio = ?', [patrimonio], (err, result) => {
+        if (err) {
+            console.error('Error no MySQL:', err)
+            return res.status(500).json({ error: 'Erro interno no servidor.' })
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Equipamento não encontrado.' })
+        }
+        res.status(204).send()
+    })
+})
+
 app.listen(5000, () => {
     console.log('Servidor rodando na porta 5000')
 })
