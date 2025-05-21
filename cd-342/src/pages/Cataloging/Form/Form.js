@@ -25,17 +25,6 @@ function Form() {
         setIsLoading(true)
         setDuplicateError(false)
 
-        console.log("Dados enviados:", {
-            nome,
-            ip,
-            mac,
-            patrimonio,
-            setor,
-            tipo_equipamento
-        })
-
-        console.log("Valor antes do envio:", tipo_equipamento, typeof tipo_equipamento);
-
         axios.post('http://127.0.0.1:5000/api/dados', { nome, ip, mac, patrimonio, setor, tipo_equipamento })
             .then((res) => {
                 alert(res.data.message)
