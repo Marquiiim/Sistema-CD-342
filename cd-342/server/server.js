@@ -15,7 +15,7 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME
 })
 
-pool.getConnection((err, connection) => {
+pool.getConnection((err) => {
     if (err) {
         console.error('Error ao conectar ao MySQL:', err.message)
         process.exit(1)
@@ -32,7 +32,7 @@ pool.on('error', (err) => {
     }
 })
 
-app.get('/api/dados', (req, res) => {
+app.get('/api/dados', (res) => {
     const sql = 'SELECT * FROM equipamentos'
     pool.query(sql, (err, result) => {
         if (err) {
