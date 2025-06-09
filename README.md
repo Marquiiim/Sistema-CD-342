@@ -1,34 +1,57 @@
-# 🚗 Projeto de Gerenciamento de Vendas e Compras de Veículos
+# 🖥️ Sistema de Controle de Equipamentos Patrimoniais
 
-Este projeto foi desenvolvido com o objetivo de aprimorar minhas habilidades em **desenvolvimento web fullstack**, integrando um backend robusto com uma interface frontend dinâmica e responsiva.
+Este projeto foi desenvolvido com o objetivo de **otimizar a gestão de ativos patrimoniais**, proporcionando um controle detalhado e eficiente de equipamentos em ambientes corporativos.
 
-## 🛠️ Tecnologias Utilizadas
+## 🎯 Funcionalidade Principal
+
+O sistema permite acompanhar com precisão:
+
+✔️ Localização atual de cada equipamento
+✔️ Tipo e marca do equipamento
+✔️ Endereço **IP** (quando disponível na rede)
+✔️ Endereço **MAC**
+✔️ Número de patrimônio
+✔️ Setor responsável
+
+---
+
+## 🗄️ Banco de Dados
+
+O banco de dados foi estruturado em **MySQL**, garantindo integridade, organização e segurança dos dados. A modelagem inclui os seguintes campos:
+
+* `id` – Chave primária (única e auto incrementada)
+* `created_at` – Data e hora de criação do registro
+* `nome_equipamento` – Nome descritivo do equipamento
+* `ip` – Endereço IP (único)
+* `mac` – Endereço MAC (único)
+* `numero_patrimonio` – Código patrimonial (único)
+* `setor` – Setor ou departamento responsável
+
+---
+
+## ⚙️ Tecnologias Utilizadas
 
 ### 🔧 Backend
 
 * **Node.js** – Ambiente de execução JavaScript no servidor
-* **Express.js** – Framework web para criação da API REST
-* **MySQL** – Banco de dados relacional para persistência de dados
+* **Express.js** – Framework para criação da API REST
+* **MySQL** – Banco de dados relacional
 
 ### 🎨 Frontend
 
 * **HTML5 & CSS3** – Estrutura e estilo da aplicação
-* **Sass** – Pré-processador CSS para modularização e reutilização de estilos
-* **JavaScript** – Lógica de interação e manipulação dinâmica do DOM
-* **Axios** – Cliente HTTP para consumo da API REST
+* **Sass** – Pré-processador CSS para organização de estilos
+* **JavaScript** – Lógica de interação e dinamismo
+* **Axios** – Cliente HTTP para integração com a API REST
 
 ---
 
-## ⚙️ Funcionalidades
+## 📌 Benefícios
 
-* **API RESTful** com rotas `GET` e `POST` para manipulação de dados relacionados às **vendas e compras de veículos**.
-* **Integração com MySQL** para armazenamento e consulta de informações persistentes.
-* **Formulários dinâmicos** para cadastro de vendas, com envio de dados diretamente ao backend.
-* **Listagens em tempo real** de veículos disponíveis, com dados consumidos da API via Axios.
-* **Interface responsiva e fluida**, com foco na experiência do usuário, desenvolvida com boas práticas de estruturação visual e organização de componentes.
+Com esse sistema, a gestão patrimonial se torna:
 
----
+✅ Mais clara
+✅ Mais rápida
+✅ Mais eficiente
 
-## 🚀 Objetivo
-
-Este projeto visa consolidar conhecimentos essenciais em tecnologias fullstack modernas, com foco na criação de aplicações completas, escaláveis e com boas práticas de arquitetura web.
+Permitindo **localizar, manter e organizar os ativos** de forma centralizada, segura e acessível.
