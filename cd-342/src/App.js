@@ -8,7 +8,7 @@ import Cataloging from './pages/Cataloging/Cataloging';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/Sistema-CD-342'>
       <Navbar />
 
       <Routes>
