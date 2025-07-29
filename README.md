@@ -1,4 +1,4 @@
-## 📦 PatrimonyControl – Sistema de Gestão & Catalogação de Equipamentos Patrimoniais
+## 📦 Projeto PatrimonyControl – Sistema de Gestão & Catalogação de Equipamentos Patrimoniais
 
 ### 🧾 Descrição
 
