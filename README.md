@@ -1,57 +1,42 @@
-# 🖥️ Sistema de Controle de Equipamentos Patrimoniais
+## 📦 PatrimonyControl – Sistema de Gestão & Catalogação de Equipamentos Patrimoniais
 
-Este projeto foi desenvolvido com o objetivo de **otimizar a gestão de ativos patrimoniais**, proporcionando um controle detalhado e eficiente de equipamentos em ambientes corporativos.
+### 🧾 Descrição
 
-## 🎯 Funcionalidade Principal
+O **PatrimonyControl** é um sistema desenvolvido para auxiliar na **gestão de equipamentos patrimoniais**, permitindo um controle eficiente de onde estão os ativos, suas especificações e dados de rede. Ele foi criado com foco na organização, rastreabilidade e segurança das informações.
 
-O sistema permite acompanhar com precisão:
+### 🧩 Funcionalidades
 
-✔️ Localização atual de cada equipamento
-✔️ Tipo e marca do equipamento
-✔️ Endereço **IP** (quando disponível na rede)
-✔️ Endereço **MAC**
-✔️ Número de patrimônio
-✔️ Setor responsável
+* 📍 Localização exata do equipamento (setor)
+* 🖥️ Tipo e nome do equipamento
+* 🏷️ Marca (quando aplicável)
+* 🌐 Endereço IP (se disponível)
+* 🔒 Endereço MAC
+* 🧾 Número de patrimônio
 
----
+### 🗄️ Estrutura do Banco de Dados (MySQL)
 
-## 🗄️ Banco de Dados
+* `id` (chave primária, auto incrementada)
+* `created_at` (data e hora da inclusão)
+* `nome_equipamento`
+* `ip` (único)
+* `mac` (único)
+* `num_patrimonio` (único)
+* `setor`
 
-O banco de dados foi estruturado em **MySQL**, garantindo integridade, organização e segurança dos dados. A modelagem inclui os seguintes campos:
+O banco foi estruturado para garantir **organização, integridade e consistência dos dados**.
 
-* `id` – Chave primária (única e auto incrementada)
-* `created_at` – Data e hora de criação do registro
-* `nome_equipamento` – Nome descritivo do equipamento
-* `ip` – Endereço IP (único)
-* `mac` – Endereço MAC (único)
-* `numero_patrimonio` – Código patrimonial (único)
-* `setor` – Setor ou departamento responsável
+### 🛠️ Tecnologias Utilizadas
 
----
+**Backend:**
 
-## ⚙️ Tecnologias Utilizadas
+* Node.js
+* Express.js
+* MySQL
+* XAMPP (para ambiente local)
 
-### 🔧 Backend
+**Frontend:**
 
-* **Node.js** – Ambiente de execução JavaScript no servidor
-* **Express.js** – Framework para criação da API REST
-* **MySQL** – Banco de dados relacional
-
-### 🎨 Frontend
-
-* **HTML5 & CSS3** – Estrutura e estilo da aplicação
-* **Sass** – Pré-processador CSS para organização de estilos
-* **JavaScript** – Lógica de interação e dinamismo
-* **Axios** – Cliente HTTP para integração com a API REST
-
----
-
-## 📌 Benefícios
-
-Com esse sistema, a gestão patrimonial se torna:
-
-✅ Mais clara
-✅ Mais rápida
-✅ Mais eficiente
-
-Permitindo **localizar, manter e organizar os ativos** de forma centralizada, segura e acessível.
+* HTML5
+* CSS3 + Sass
+* JavaScript
+* Axios (para consumo da API)
